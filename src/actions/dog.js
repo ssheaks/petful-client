@@ -47,7 +47,7 @@ export const deleteDogSuccess = () => ({
 })
 
 export const DELETE_DOG_ERROR = 'DELETE_DOG_ERROR';
-export const fetchDogError = (error) => ({
+export const deleteDogError = (error) => ({
   type: DELETE_DOG_ERROR,
   error
 })

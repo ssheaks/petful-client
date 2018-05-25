@@ -47,7 +47,7 @@ export const deleteCatSuccess = () => ({
 })
 
 export const DELETE_CAT_ERROR = 'DELETE_CAT_ERROR';
-export const fetchCatError = (error) => ({
+export const deleteCatError = (error) => ({
   type: DELETE_CAT_ERROR,
   error
 })
