@@ -20,9 +20,9 @@ export const fetchDogError = (error) => ({
 })
 
 //async fetch dog call
-export const fetchDog = () => dispatch => {
+export const fetchDog = () => (dispatch, getState) => {
   dispatch(fetchDogRequest());
-  fetch('/cat').then(res => {
+  fetch(`${API_BASE_URL}/dog`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -55,7 +55,7 @@ export const deleteDogError = (error) => ({
 //async delete dog call
 export const deleteDog = () => dispatch => {
   dispatch(deleteDogRequest());
-  fetch('/dog', {
+  fetch(`${API_BASE_URL}/dog`, {
     method: 'DELETE'
   }).then(res => {
     if (!res.ok) {

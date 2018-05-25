@@ -1,15 +1,7 @@
 import { FETCH_DOG_REQUEST, FETCH_DOG_SUCCESS, FETCH_DOG_ERROR, DELETE_DOG_REQUEST, DELETE_DOG_SUCCESS, DELETE_DOG_ERROR } from '../actions/index';
 
 const initialState = {
-  data: [{
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
-name: 'Zeus',
-sex: 'Male',
-age: 3,
-breed: 'Golden Retriever',
-story: 'Owner Passed away'
-  }],
+  data: null,
   loading: false,
   error: null
 }
@@ -23,7 +15,7 @@ const dogReducer = (state = initialState, action) => {
   }
   if (action.type === FETCH_DOG_SUCCESS) {
     return Object.assign({}, state, {
-      data: action.data,
+      data: action.dog,
       loading: true,
       error: null
     });
@@ -54,7 +46,7 @@ const dogReducer = (state = initialState, action) => {
     });
   }
   console.log(state);
-  return initialState
+  return state
 }
 
 export default dogReducer;

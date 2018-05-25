@@ -20,9 +20,9 @@ export const fetchCatError = (error) => ({
 })
 
 //async fetch cat call
-export const fetchCat = () => dispatch => {
+export const fetchCat = () => (dispatch, getState) => {
   dispatch(fetchCatRequest());
-  fetch('/cat').then(res => {
+  fetch(`${API_BASE_URL}/cat`).then(res => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
@@ -55,7 +55,7 @@ export const deleteCatError = (error) => ({
 //async delete cat call
 export const deleteCat = () => dispatch => {
   dispatch(deleteCatRequest());
-  fetch('/cat', {
+  fetch(`${API_BASE_URL}/cat`, {
     method: 'DELETE'
   }).then(res => {
     if (!res.ok) {
