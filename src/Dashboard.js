@@ -25,12 +25,16 @@ export default class Dashboard extends Component {
         }]
       }
     }
+
+    onClickHandler=() => {
+      console.log('clicked');
+    }
   
   render() {
     return (
       <div>
-        <Pets pet={this.state.catToAdopt[0]} />
-        <Pets pet={this.state.dogToAdopt[0]} />
+        <Pets pet={this.state.catToAdopt[0]} onAdoptPet={this.onClickHandler} />
+        <Pets pet={this.state.dogToAdopt[0]} onAdoptPet={this.onClickHandler} />
         {/* <section className="cats">
         <header>
           <h2>{this.state.catToAdopt[0].name}</h2>
