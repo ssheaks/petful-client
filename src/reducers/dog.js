@@ -45,7 +45,7 @@ const dogReducer = (state = initialState, action) => {
       error: true
     });
   }
-  console.log(state);
+  // console.log(state);
   return state
 }
 

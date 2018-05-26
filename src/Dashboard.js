@@ -37,17 +37,19 @@ export class Dashboard extends Component {
       this.props.dispatch(fetchDog());
     }
 
-    onClickHandler= (type) => {
-      console.log('clicked');
-      if(this.props.cat) {
-        this.props.dispatch(deleteCat());
-        console.log('you adopted a kitty!')
-      }
-      if(this.props.dog) {
-        this.props.dispatch(deleteDog());
-        console.log('you adopted a doggy!')
-      }
-    }
+    // onClickHandler= (type) => {
+    //   console.log('clicked');
+    //   // if(this.props.cat.data)
+    //   if(this.props.cat) {
+    //     console.log(this.props.cat.data.type);
+    //     this.props.dispatch(deleteCat());
+    //     console.log('you adopted a kitty!')
+    //   }  else if(this.props.dog.data.type === 'dog') {
+    //     console.log(this.props.dog.data.type);
+    //     this.props.dispatch(deleteDog());
+    //     console.log('you adopted a doggy!')
+    //   }
+    // }
   
   render() {
     return (
@@ -56,9 +58,9 @@ export class Dashboard extends Component {
         <header role="banner">
           <h1>Adopt a Pet!!</h1>
         </header>
-        <div class="app">
-        <Pets pet={this.props.cat.data} onAdoptPet={this.onClickHandler} type='cat' />
-        <Pets pet={this.props.dog.data} onAdoptPet={this.onClickHandler} type='dog' />
+        <div className="app">
+        <Pets pet={this.props.cat.data} onAdoptPet={() => this.props.dispatch(deleteCat())} type='cat' />
+        <Pets pet={this.props.dog.data} onAdoptPet={() => this.props.dispatch(deleteDog())} type='dog' />
         {/* <Pets pet={this.state.catToAdopt[0]} onAdoptPet={this.onClickHandler} />
         <Pets pet={this.state.dogToAdopt[0]} onAdoptPet={this.onClickHandler} /> */}
         {/* <section className="cats">
