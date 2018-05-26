@@ -10,7 +10,7 @@ export function Pet(props) {
           <img alt={props.pet ? props.pet.imageDescription : ''} src={props.pet ? props.pet.imageURL : ''} />
         </header>
         <main role="main">
-          <dl className="description list">
+          <dl className="description-list">
             <dt>Sex: </dt>
             <dd>{props.pet ? props.pet.sex : ''}</dd>
             <dt>Age: </dt>

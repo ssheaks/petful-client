@@ -61,7 +61,7 @@ export const deleteCat = () => dispatch => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
-    return res.json();
+    return res.statusText;
   }).then(cat => {
     dispatch(deleteCatSuccess());
   }).then(() => dispatch(fetchCat()))

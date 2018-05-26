@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import Pets from './components/Pets';
 import { fetchCat } from './actions/cat';
 import { fetchDog } from './actions/dog';
+import { deleteCat } from './actions/cat';
+import {deleteDog} from './actions/dog';
 import {connect} from 'react-redux';
+import './Dashboard.css'
 
 export class Dashboard extends Component {
   // constructor(props) {
@@ -34,15 +37,28 @@ export class Dashboard extends Component {
       this.props.dispatch(fetchDog());
     }
 
-    onClickHandler=() => {
+    onClickHandler= (type) => {
       console.log('clicked');
+      if(this.props.cat) {
+        this.props.dispatch(deleteCat());
+        console.log('you adopted a kitty!')
+      }
+      if(this.props.dog) {
+        this.props.dispatch(deleteDog());
+        console.log('you adopted a doggy!')
+      }
     }
   
   render() {
     return (
-      <div>
-        <Pets pet={this.props.cat.data} onAdoptPet={this.onClickHandler} type="cat" />
-        <Pets pet={this.props.dog.data} onAdoptPet={this.onClickHandler} type="dog" />
+      
+      <main role="main">
+        <header role="banner">
+          <h1>Adopt a Pet!!</h1>
+        </header>
+        <div class="app">
+        <Pets pet={this.props.cat.data} onAdoptPet={this.onClickHandler} type='cat' />
+        <Pets pet={this.props.dog.data} onAdoptPet={this.onClickHandler} type='dog' />
         {/* <Pets pet={this.state.catToAdopt[0]} onAdoptPet={this.onClickHandler} />
         <Pets pet={this.state.dogToAdopt[0]} onAdoptPet={this.onClickHandler} /> */}
         {/* <section className="cats">
@@ -84,13 +100,15 @@ export class Dashboard extends Component {
         </main>
         </section> */}
       </div>
+    </main>
     )
   }
 }
 
 const mapStateToProps = state => ({
   cat: state.cat,
-  dog: state.dog
+  dog: state.dog,
+  // type: state.data.type
 });
 
 export default connect(mapStateToProps)(Dashboard);

@@ -61,7 +61,7 @@ export const deleteDog = () => dispatch => {
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
-    return res.json();
+    return res.statusText;
   }).then(dog => {
     dispatch(deleteDogSuccess());
   }).then(() => dispatch(fetchDog()))
