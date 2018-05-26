@@ -61,46 +61,6 @@ export class Dashboard extends Component {
         <div className="app">
         <Pets pet={this.props.cat.data} onAdoptPet={() => this.props.dispatch(deleteCat())} type='cat' />
         <Pets pet={this.props.dog.data} onAdoptPet={() => this.props.dispatch(deleteDog())} type='dog' />
-        {/* <Pets pet={this.state.catToAdopt[0]} onAdoptPet={this.onClickHandler} />
-        <Pets pet={this.state.dogToAdopt[0]} onAdoptPet={this.onClickHandler} /> */}
-        {/* <section className="cats">
-        <header>
-          <h2>{this.state.catToAdopt[0].name}</h2>
-          <img alt={this.state.catToAdopt[0].imageDescription} src={this.state.catToAdopt[0].imageURL} />
-        </header>
-        <main>
-          <dl className="description list">
-            <dt>Sex: </dt>
-            <dd>{this.state.catToAdopt[0].sex}</dd>
-            <dt>Age: </dt>
-            <dd>{this.state.catToAdopt[0].age}</dd>
-            <dt>Breed: </dt>
-            <dd>{this.state.catToAdopt[0].breed}</dd>
-            <dt>Story: </dt>
-            <dd>{this.state.catToAdopt[0].story}</dd>
-          </dl>
-          <button>Adopt</button>
-        </main>
-        </section>
-        <section className="dogs">
-        <header>
-          <h2>{this.state.dogToAdopt[0].name}</h2>
-          <img alt={this.state.dogToAdopt[0].imageDescription} src={this.state.dogToAdopt[0].imageURL} />
-        </header>
-        <main>
-        <dl className="description list">
-          <dt>Sex: </dt>
-          <dd>{this.state.dogToAdopt[0].sex}</dd>
-          <dt>Age: </dt>
-          <dd>{this.state.dogToAdopt[0].age}</dd>
-          <dt>Breed: </dt>
-          <dd>{this.state.dogToAdopt[0].breed}</dd>
-          <dt>Story: </dt>
-          <dd>{this.state.dogToAdopt[0].story}</dd>
-        </dl>
-        <button>Adopt</button>
-        </main>
-        </section> */}
       </div>
     </main>
     )
